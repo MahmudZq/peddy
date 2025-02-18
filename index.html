@@ -3,18 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/1f00096e00.js" crossorigin="anonymous"></script>
 
     <title>Peddy | Pet Shop</title>
-</head>
-<body>
-    <header>
 
+    <style>
+      .font-lato{
+        font-family: "Lato", serif;
+      }
+      #petCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;  
+}
+
+    </style>
+
+</head>
+<body class="font-lato">
+    <header >
+        <nav class="container mx-auto">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h8m-8 6h16" />
+                      </svg>
+                    </div>
+                    <ul
+                      tabindex="0"
+                      class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#adopt">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    </ul>
+                  </div>
+                  <a class="btn btn-ghost text-xl">
+                    <div class="flex flex-row gap-2 items-center ">
+                        <img src="./images/logo.webp" class="" alt="">
+                        <h1 class="font-bold text-4xl">Peddy</h1>
+                    </div>
+                  </a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#adopt">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="navbar-end">
+                        <i class="fa-regular fa-user fa-xl opacity-100 relative  z-10">
+                        <div class="w-14 h-14 rounded-full border-[#0E7A81] opacity-20 border-2 -top-6 -left-4 absolute z-20">   
+                        </div>
+                        </i>
+                </div>
+              </div>
+        </nav>
     </header>
-    <main>
-        
-    </main>
-    
+    <main class="container mx-auto">
+    <section id="banner">
+        <div class=" flex flex-row gap-2 mx-auto justify-center items-center mt-10">
+        <h1 class="text-xl font-bold text-[#131313] opacity-60 ">Bringing Families Together</h1>
+        <img src="https://img.icons8.com/?size=100&id=QV5JEtrTP6nH&format=png&color=000000" class="h-10" alt="">
+        </div>
+        <div>
+            <h1 class="text-7xl w-1/2 text-wrap mx-auto font-bold text-center mt-5">Your Path to Adoption Starts Here</h1>
+        </div>
+        <P class="w-2/3 mx-auto text-base text-wrap opacity-80 text-center mt-5">
+            If you have the time, resources, and room in your heart to adopt a pet from an animal shelter, you might feel tempted to rush out and bring home your furry friend now.
+        </P>
+        <br>
+        <div class="flex flex-row justify-center">
+        <a href="#adopt">
+        <button class="btn text-lg bg-primary hover:bg-black text-white">
+            View More
+        </button>
+        </a>
+        </div>
+        <div>
+            <img src="./images/pet.webp" class="w-1/2 mx-auto" alt="">
+        </div>
+    </section>
+
+    <section id="adopt">
+        <h1 class="text-4xl w-1/2 text-wrap mx-auto font-bold text-center mt-5">Adopt Your Best Friend</h1>
+        <P class="w-1/2 mx-auto text-base text-wrap  opacity-80  text-center mt-4">
+            With more adoptable pets than ever, we have an urgent need for pet adopters. Search for dogs, cats, and other available pets for adoption near you.
+        </P>
+
+        <div id="petCategory"  class="container mx-auto grid grid-cols-1  customSm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5 ">
+
+        </div>
+        <div class="flex flex-row justify-between mt-5 mb-10">
+            <h1 class="text-3xl font-bold">Best Deal For you</h1>
+            <button id="sortButton" class="btn text-xl px-4 py-2  bg-primary hover:bg-black text-white">Sort by Price</button>
+        </div>
+        <div id="spinner" class="hidden flex flex-row justify-center mb-52">
+            <span class="loading loading-infinity loading-lg"></span>
+        </div>
+        <div  class=" mx-auto lg:flex lg:flex-row lg:justify-between lg:gap-5 ">
+            <div id="petCards" class="hidden lg:w-3/4 grid grid-cols-1 customSm:grid-cols-2 lg:grid-cols-3 mx-auto gap-5 ">
+
+            </div>
+            <div id="noInfo" class="hidden lg:w-3/4 ">
+                <img src="./images/error.webp" class="mx-auto" alt="">
+                <h1 class="text-[#000000] text-2xl text-center font-bold mt-5 mb-2">No Information Available</h1>
+                <P class="w-2/3 mx-auto text-base text-wrap  opacity-80  text-center mt-4">
+                    With more adoptable pets than ever, we have an urgent need for pet adopters. Search for dogs, cats, and other available pets for adoption near you.
+                </P>
+            </div>
+            <div id="likedPets" class="lg:w-1/4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 h-min rounded-xl  border-[#000000] border-opacity-20 ">
+
+            </div>
+        </div>
+    </section>
+
+<section id="modal">
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <div id="modalContent">
+        </div>
+        <div class="modal-action">
+            <form method="dialog" class="w-full flex justify-center ">
+                <button class="btn text-xl w-full border-[1px] border-opacity-50 border-[#0E7A81]  bg-[#68d5dd] bg-opacity-20 text-primary hover:text-white hover:bg-error">
+                    Cancel
+                </button>
+            </form>
+        </div>
+    </div>
+</dialog>
+</section> 
+
+<section id="modal3">
+    <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="modalContentAccepted" class="flex flex-col items-center gap-2">
+                <img src="https://img.icons8.com/?size=100&id=10993&format=png&color=000000" class="w-10" alt=""> 
+                <h1 class="font-bold text-2xl">Congrats</h1>
+                <p>Adoption is started for your pet.</p>
+                <h1 id="modalCount" class="font-bold text-2xl text-center"></h1>
+            </div>
+            <div class="modal-action">
+                <form method="dialog" class="w-full flex justify-center ">
+                    <button id="btnClose" class="btn text-xl w-full border-[1px] border-opacity-50 border-[#0E7A81]  bg-[#68d5dd] bg-opacity-20 text-primary hover:text-white hover:bg-error">
+                        Close
+                    </button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+    </section> 
+
+</main>
+<footer class="w-full  bg-[#000000]">
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10">
+<div id="contact" class="order-3 lg:order-1">
+    <div class="flex flex-row gap-3 mb-4 items-center">
+        <img src="./images/logo.webp" class="w-8 h-6" alt="">
+        <h1 class="font-bold text-3xl text-white">Peddy</h1>
+    </div>
+    <div class="space-y-1">
+        <p class="text-white text-base">Location: av. Washington 165, NY CA 54003</p>
+        <p class="text-white text-base">Phone: +31 85 964 47 25</p>
+        <p class="text-white text-base">Email: info@yourdomain.com</p>
+        <p class="text-white text-base">Openings hours: 9.00 AM - 5.00 PM</p>
+    </div>
+    <div class="flex gap-2 mt-1 pb-10">
+        <img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000"  class="w-10" alt="">
+        <img src="https://img.icons8.com/?size=100&id=yoQabS8l0qpr&format=png&color=000000"  class="w-10" alt="">
+        <img src="https://img.icons8.com/?size=100&id=qLVB1tIe9Ts9&format=png&color=000000"  class="w-10" alt="">
+        <img src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000"  class="w-10" alt="">
+    </div>
+</div>
+<div class="order-2">
+
+    <h1 class="text-lg font-bold text-white mb-4">Useful Links</h1>
+    <div class="text-base space-y-2 pb-10">
+    <p class="text-[#ffffff] opacity-50">Home</p>
+    <p class="text-[#ffffff] opacity-50">About Us</p>
+    <p class="text-[#ffffff] opacity-50">Animals</p>
+    <p class="text-[#ffffff] opacity-50">Foundation</p>
+    <p class="text-[#ffffff] opacity-50">Contact</p>
+    </div>
+</div>
+<div class="order-1 lg:order-3 pb-10">
+<h1 class="font-bold text-xl text-white mb-4">Drop a Message</h1>
+<div class="flex flex-col space-y-1">
+<input type="text" placeholder="Enter your email" class="input input-bordered w-full max-w-xs bg-slate-800 mb-4" />
+<button id="subscribe" class="btn text-xl px-4 py-2 w-full max-w-xs bg-primary hover:bg-[#444444] text-white cursor-pointer">Subscribe</button>
+</div>
+</div>
+</div>
+</footer>
+<script src="./js/index.js"></script>
 </body>
 </html>

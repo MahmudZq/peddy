@@ -143,24 +143,24 @@ const modal = async (id) => {
         <div class="">
         <img src=${petPhoto} class="rounded-3xl w-full  object-cover mx-auto" alt="">
     </div>
-    <h1 class="text-4xl font-bold mt-6 mb-3  border-b-[2px] border-[#111111]   border-opacity-30  pb-4 mx-3">
+    <h1 class="text-xl lg:text-4xl font-bold mt-6 mb-3  border-b-[2px] border-[#111111]   border-opacity-30  pb-4 mx-3">
         ${petName}
     </h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div class="space-y-4">
             <div class="flex flex-row gap-2 items-center">
                 <i class="fa-regular fa-square-minus"></i>
-                <p class="text-base text-[#111111] opacity-80">Breed: ${petBreed}</p>
+                <p class="text-xs md:text-base text-[#111111] opacity-80">Breed: ${petBreed}</p>
             </div>
             
             <div class="flex flex-row gap-2  items-center">
                 <i class="fa-solid fa-mercury"></i>
-                <p class="text-base text-[#111111] opacity-80">Gender: ${petGender}</p>
+                <p class="text-xs md:text-base text-[#111111] opacity-80">Gender: ${petGender}</p>
             </div>
 
             <div class="flex flex-row gap-2  items-center">
                 <i class="fa-solid fa-mercury"></i>
-                <p class="text-base text-[#111111] opacity-80">Vaccinated Status: ${petVaccin}</p>
+                <p class="text-xs md:text-base text-[#111111] opacity-80">Vaccinated Status: ${petVaccin}</p>
             </div>
 
             
@@ -168,19 +168,19 @@ const modal = async (id) => {
         <div class="space-y-4">
             <div class="flex flex-row gap-2 items-center">
                 <i class="fa-regular fa-calendar"></i>
-                <p class="text-base text-[#111111] opacity-80">Birth: ${petBOD}</p>
+                <p class="text-xs md:text-base text-[#111111] opacity-80">Birth: ${petBOD}</p>
             </div>
             <div class="flex flex-row gap-2  items-center">
                 <i class="fa-solid fa-dollar-sign"></i>
-                <p class="text-base text-[#111111] opacity-80">Price:  ${petPrice}</p>
+                <p class="text-xs md:text-base text-[#111111] opacity-80">Price:  ${petPrice}</p>
             </div>
 
         </div>
 
     </div>
     <div>
-        <h1 class="text-xl font-bold mt-3 mb-2 text-[#000000]">Details Information</h1>
-        <p class="text-base text-wrap  opacity-80">
+        <h1 class="text-base md:text-xl font-bold mt-3 mb-2 text-[#000000]">Details Information</h1>
+        <p class="text-xs  md:text-base text-wrap  opacity-80">
         ${petDetails}
         </p>
     </div>
